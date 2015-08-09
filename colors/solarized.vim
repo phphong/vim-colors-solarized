@@ -244,10 +244,12 @@ if (has("gui_running") && g:solarized_degrade == 0)
     let s:vmode       = "gui"
     let s:base03      = "#002b36"
     let s:base02      = "#073642"
+    let s:base015      = "#005f5f"
     let s:base01      = "#586e75"
     let s:base00      = "#657b83"
     let s:base0       = "#839496"
     let s:base1       = "#93a1a1"
+    let s:base15       = "#dfdfaf"
     let s:base2       = "#eee8d5"
     let s:base3       = "#fdf6e3"
     let s:yellow      = "#b58900"
@@ -266,10 +268,12 @@ elseif (has("gui_running") && g:solarized_degrade == 1)
     let s:vmode       = "gui"
     let s:base03      = "#1c1c1c"
     let s:base02      = "#262626"
+    let s:base015      = "#005f5f"
     let s:base01      = "#4e4e4e"
     let s:base00      = "#585858"
     let s:base0       = "#808080"
     let s:base1       = "#8a8a8a"
+    let s:base15       = "#dfdfaf"
     let s:base2       = "#d7d7af"
     let s:base3       = "#ffffd7"
     let s:yellow      = "#af8700"
@@ -280,14 +284,17 @@ elseif (has("gui_running") && g:solarized_degrade == 1)
     let s:blue        = "#0087ff"
     let s:cyan        = "#00afaf"
     let s:green       = "#5f8700"
-elseif g:solarized_termcolors != 256 && &t_Co >= 16
+elseif g:solarized_termcolors != 256 && &t_Co == 256
+	"for terminal installed solarized color scheme and have 256 color palette
     let s:vmode       = "cterm"
     let s:base03      = "8"
     let s:base02      = "0"
+    let s:base015      = "23"
     let s:base01      = "10"
     let s:base00      = "11"
     let s:base0       = "12"
     let s:base1       = "14"
+    let s:base15       = "187"
     let s:base2       = "7"
     let s:base3       = "15"
     let s:yellow      = "3"
@@ -299,13 +306,16 @@ elseif g:solarized_termcolors != 256 && &t_Co >= 16
     let s:cyan        = "6"
     let s:green       = "2"
 elseif g:solarized_termcolors == 256
+	"for terminal not installed solarized and have 256 color palette
     let s:vmode       = "cterm"
     let s:base03      = "234"
     let s:base02      = "235"
+    let s:base015      = "237"
     let s:base01      = "239"
     let s:base00      = "240"
     let s:base0       = "244"
     let s:base1       = "245"
+    let s:base15       = "222"
     let s:base2       = "187"
     let s:base3       = "230"
     let s:yellow      = "136"
@@ -337,10 +347,12 @@ else
 "   let s:green       = "2"
     let s:base03      = "DarkGray"      " 0*
     let s:base02      = "Black"         " 0
+    let s:base015      = "Black"         " 0
     let s:base01      = "LightGreen"    " 2*
     let s:base00      = "LightYellow"   " 3*
     let s:base0       = "LightBlue"     " 4*
     let s:base1       = "LightCyan"     " 6*
+    let s:base15       = "LightCyan"     " 6*
     let s:base2       = "LightGray"     " 7
     let s:base3       = "White"         " 7*
     let s:yellow      = "DarkYellow"    " 3
@@ -379,14 +391,17 @@ endif
 if &background == "light"
     let s:temp03      = s:base03
     let s:temp02      = s:base02
+    let s:temp015      = s:base015
     let s:temp01      = s:base01
     let s:temp00      = s:base00
     let s:base03      = s:base3
     let s:base02      = s:base2
+    let s:base015      = s:base15
     let s:base01      = s:base1
     let s:base00      = s:base0
     let s:base0       = s:temp00
     let s:base1       = s:temp01
+    let s:base15       = s:temp015
     let s:base2       = s:temp02
     let s:base3       = s:temp03
     if (s:back != "NONE")
@@ -438,10 +453,12 @@ exe "let s:bg_none      = ' ".s:vmode."bg=".s:none   ."'"
 exe "let s:bg_back      = ' ".s:vmode."bg=".s:back   ."'"
 exe "let s:bg_base03    = ' ".s:vmode."bg=".s:base03 ."'"
 exe "let s:bg_base02    = ' ".s:vmode."bg=".s:base02 ."'"
+exe "let s:bg_base015    = ' ".s:vmode."bg=".s:base015 ."'"
 exe "let s:bg_base01    = ' ".s:vmode."bg=".s:base01 ."'"
 exe "let s:bg_base00    = ' ".s:vmode."bg=".s:base00 ."'"
 exe "let s:bg_base0     = ' ".s:vmode."bg=".s:base0  ."'"
 exe "let s:bg_base1     = ' ".s:vmode."bg=".s:base1  ."'"
+exe "let s:bg_base15     = ' ".s:vmode."bg=".s:base15  ."'"
 exe "let s:bg_base2     = ' ".s:vmode."bg=".s:base2  ."'"
 exe "let s:bg_base3     = ' ".s:vmode."bg=".s:base3  ."'"
 exe "let s:bg_green     = ' ".s:vmode."bg=".s:green  ."'"
@@ -457,10 +474,12 @@ exe "let s:fg_none      = ' ".s:vmode."fg=".s:none   ."'"
 exe "let s:fg_back      = ' ".s:vmode."fg=".s:back   ."'"
 exe "let s:fg_base03    = ' ".s:vmode."fg=".s:base03 ."'"
 exe "let s:fg_base02    = ' ".s:vmode."fg=".s:base02 ."'"
+exe "let s:fg_base015    = ' ".s:vmode."fg=".s:base015 ."'"
 exe "let s:fg_base01    = ' ".s:vmode."fg=".s:base01 ."'"
 exe "let s:fg_base00    = ' ".s:vmode."fg=".s:base00 ."'"
 exe "let s:fg_base0     = ' ".s:vmode."fg=".s:base0  ."'"
 exe "let s:fg_base1     = ' ".s:vmode."fg=".s:base1  ."'"
+exe "let s:fg_base15     = ' ".s:vmode."fg=".s:base15  ."'"
 exe "let s:fg_base2     = ' ".s:vmode."fg=".s:base2  ."'"
 exe "let s:fg_base3     = ' ".s:vmode."fg=".s:base3  ."'"
 exe "let s:fg_green     = ' ".s:vmode."fg=".s:green  ."'"
@@ -495,10 +514,12 @@ if has("gui_running")
     exe "let s:sp_back      = ' guisp=".s:back   ."'"
     exe "let s:sp_base03    = ' guisp=".s:base03 ."'"
     exe "let s:sp_base02    = ' guisp=".s:base02 ."'"
+    exe "let s:sp_base015    = ' guisp=".s:base015 ."'"
     exe "let s:sp_base01    = ' guisp=".s:base01 ."'"
     exe "let s:sp_base00    = ' guisp=".s:base00 ."'"
     exe "let s:sp_base0     = ' guisp=".s:base0  ."'"
     exe "let s:sp_base1     = ' guisp=".s:base1  ."'"
+    exe "let s:sp_base15     = ' guisp=".s:base15  ."'"
     exe "let s:sp_base2     = ' guisp=".s:base2  ."'"
     exe "let s:sp_base3     = ' guisp=".s:base3  ."'"
     exe "let s:sp_green     = ' guisp=".s:green  ."'"
@@ -514,10 +535,12 @@ else
     let s:sp_back      = ""
     let s:sp_base03    = ""
     let s:sp_base02    = ""
+    let s:sp_base015    = ""
     let s:sp_base01    = ""
     let s:sp_base00    = ""
     let s:sp_base0     = ""
     let s:sp_base1     = ""
+    let s:sp_base15     = ""
     let s:sp_base2     = ""
     let s:sp_base3     = ""
     let s:sp_green     = ""
@@ -614,8 +637,8 @@ exe "hi! StatusLineNC"   .s:fmt_none   .s:fg_base00 .s:bg_base02 .s:fmt_revbb
 exe "hi! Visual"         .s:fmt_none   .s:fg_none   .s:bg_base02
 exe "hi! Directory"      .s:fmt_none   .s:fg_blue   .s:bg_none
 exe "hi! ErrorMsg"       .s:fmt_revr   .s:fg_red    .s:bg_none
-exe "hi! IncSearch"      .s:fmt_stnd   .s:fg_orange .s:bg_none
-exe "hi! Search"         .s:fmt_revr   .s:fg_yellow .s:bg_none
+exe "hi! IncSearch"      .s:fmt_stnd   .s:fg_base15 .s:bg_none
+exe "hi! Search"         .s:fmt_none   .s:fg_none .s:bg_base015
 exe "hi! MoreMsg"        .s:fmt_none   .s:fg_blue   .s:bg_none
 exe "hi! ModeMsg"        .s:fmt_none   .s:fg_blue   .s:bg_none
 exe "hi! LineNr"         .s:fmt_bold   .s:fg_base1 .s:bg_base03
