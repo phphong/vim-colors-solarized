@@ -218,7 +218,7 @@ call s:SetOption("italic",1) " note that we need to override this later if the t
 call s:SetOption("termcolors",16)
 call s:SetOption("contrast","normal")
 call s:SetOption("visibility","normal")
-call s:SetOption("diffmode","normal")
+call s:SetOption("diffmode","high")
 call s:SetOption("hitrail",0)
 call s:SetOption("menu",1)
 
