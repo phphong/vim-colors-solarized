@@ -307,25 +307,42 @@ elseif g:solarized_termcolors != 256 && &t_Co == 256
     let s:green       = "2"
 elseif g:solarized_termcolors == 256
 	"for terminal not installed solarized and have 256 color palette
+    if !exists("g:solarized_myowncolor")
+        let g:solarized_myowncolor=0
+    endif
+
     let s:vmode       = "cterm"
-    let s:base03      = "234"
-    let s:base02      = "235"
-    let s:base015      = "237"
-    let s:base01      = "239"
-    let s:base00      = "240"
+    let s:base03      = "235"
+    let s:base02      = "236"
+    let s:base015      = "238"
+    let s:base01      = "240"
+    let s:base00      = "241"
     let s:base0       = "244"
     let s:base1       = "245"
     let s:base15       = "222"
     let s:base2       = "187"
     let s:base3       = "230"
-    let s:yellow      = "136"
-    let s:orange      = "166"
-    let s:red         = "124"
-    let s:magenta     = "125"
-    let s:violet      = "61"
-    let s:blue        = "33"
-    let s:cyan        = "37"
-    let s:green       = "64"
+    if g:solarized_myowncolor != 1
+        "use default solarized color
+        let s:yellow      = "136"
+        let s:orange      = "166"
+        let s:red         = "124"
+        let s:magenta     = "125"
+        let s:violet      = "61"
+        let s:blue        = "33"
+        let s:cyan        = "37"
+        let s:green       = "64"
+    else
+        "use colorscheme's color
+        let s:yellow      = "3"
+        let s:orange      = "9"
+        let s:red         = "1"
+        let s:magenta     = "5"
+        let s:violet      = "13"
+        let s:blue        = "4"
+        let s:cyan        = "6"
+        let s:green       = "2"
+    endif
 else
     let s:vmode       = "cterm"
     let s:bright      = "* term=bold cterm=bold"
