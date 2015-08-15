@@ -312,18 +312,18 @@ elseif g:solarized_termcolors == 256
     endif
 
     let s:vmode       = "cterm"
-    let s:base03      = "235"
-    let s:base02      = "236"
-    let s:base015      = "238"
-    let s:base01      = "240"
-    let s:base00      = "241"
-    let s:base0       = "244"
-    let s:base1       = "245"
-    let s:base15       = "222"
-    let s:base2       = "187"
-    let s:base3       = "230"
     if g:solarized_myowncolor != 1
         "use default solarized color
+        let s:base03      = "234"
+        let s:base02      = "235"
+        let s:base015      = "237"
+        let s:base01      = "239"
+        let s:base00      = "240"
+        let s:base0       = "244"
+        let s:base1       = "245"
+        let s:base15       = "222"
+        let s:base2       = "187"
+        let s:base3       = "230"
         let s:yellow      = "136"
         let s:orange      = "166"
         let s:red         = "124"
@@ -334,6 +334,16 @@ elseif g:solarized_termcolors == 256
         let s:green       = "64"
     else
         "use colorscheme's color
+        let s:base03      = "235"
+        let s:base02      = "236"
+        let s:base015      = "239"
+        let s:base01      = "242"
+        let s:base00      = "244"
+        let s:base0       = "249"
+        let s:base1       = "251"
+        let s:base15       = "223"
+        let s:base2       = "229"
+        let s:base3       = "230"
         let s:yellow      = "3"
         let s:orange      = "9"
         let s:red         = "1"
@@ -649,7 +659,7 @@ else
     exe "hi! SpecialKey" .s:fmt_bold   .s:fg_base00 .s:bg_none
     exe "hi! NonText"    .s:fmt_bold   .s:fg_base00 .s:bg_none
 endif
-exe "hi! StatusLine"     .s:fmt_none   .s:fg_base1  .s:bg_base02 .s:fmt_revbb
+exe "hi! StatusLine"     .s:fmt_none   .s:fg_base0  .s:bg_base02 .s:fmt_revbb
 exe "hi! StatusLineNC"   .s:fmt_none   .s:fg_base00 .s:bg_base02 .s:fmt_revbb
 exe "hi! Visual"         .s:fmt_none   .s:fg_none   .s:bg_base02
 exe "hi! Directory"      .s:fmt_none   .s:fg_blue   .s:bg_none
@@ -658,8 +668,8 @@ exe "hi! IncSearch"      .s:fmt_stnd   .s:fg_base15 .s:bg_none
 exe "hi! Search"         .s:fmt_none   .s:fg_none .s:bg_base015
 exe "hi! MoreMsg"        .s:fmt_none   .s:fg_blue   .s:bg_none
 exe "hi! ModeMsg"        .s:fmt_none   .s:fg_blue   .s:bg_none
-exe "hi! LineNr"         .s:fmt_bold   .s:fg_base1 .s:bg_base03
-exe "hi! CursorLineNr"   .s:fmt_bold   .s:fg_base2 .s:bg_base03
+exe "hi! LineNr"         .s:fmt_bold   .s:fg_base01 .s:bg_base03
+exe "hi! CursorLineNr"   .s:fmt_bold   .s:fg_base0 .s:bg_base03
 exe "hi! Question"       .s:fmt_bold   .s:fg_cyan   .s:bg_none
 if ( has("gui_running") || &t_Co > 8 )
     exe "hi! VertSplit"  .s:fmt_none   .s:fg_base00 .s:bg_none

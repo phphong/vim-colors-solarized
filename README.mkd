@@ -122,6 +122,11 @@ the `colorschem solarized` line:
 
     let g:solarized_termcolors=256
 
+If you want to use your own colorscheme with a greyscale background, add this 
+also:
+
+    let g:solarized_myowncolor=1 (default is 0)
+
 Again, I recommend just changing your terminal colors to Solarized values 
 either manually or via one of the many terminal schemes available for import.
 
