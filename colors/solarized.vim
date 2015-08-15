@@ -586,7 +586,11 @@ endif
 " note that link syntax to avoid duplicate configuration doesn't work with the
 " exe compiled formats
 
+" prevent vim to auto change our background option, and change wrong, if bg_back = "254" it will change to light, which is wrong
+" this is a bug of vim https://groups.google.com/forum/#!msg/vim_dev/afPqwAFNdrU/VYYAwC5AfhkJ
+let s:solarized_backup_background=&background
 exe "hi! Normal"         .s:fmt_none   .s:fg_base0  .s:bg_back
+let &background=s:solarized_backup_background
 
 exe "hi! Comment"        .s:fmt_ital   .s:fg_base01 .s:bg_none
 "       *Comment         any comment
