@@ -307,12 +307,16 @@ elseif g:solarized_termcolors != 256 && &t_Co == 256
     let s:green       = "2"
 elseif g:solarized_termcolors == 256
 	"for terminal not installed solarized and have 256 color palette
-    if !exists("g:solarized_myowncolor")
-        let g:solarized_myowncolor=0
+    if !exists("g:solarized_myownbasecolor")
+        let g:solarized_myownbasecolor=1
+    endif
+    if !exists("g:solarized_myowntintcolor")
+        let g:solarized_myowntintcolor=0
     endif
 
     let s:vmode       = "cterm"
-    if g:solarized_myowncolor != 1
+
+    if g:solarized_myownbasecolor != 1
         "use default solarized color
         let s:base03      = "234"
         let s:base02      = "235"
@@ -324,14 +328,6 @@ elseif g:solarized_termcolors == 256
         let s:base15       = "222"
         let s:base2       = "187"
         let s:base3       = "230"
-        let s:yellow      = "136"
-        let s:orange      = "166"
-        let s:red         = "124"
-        let s:magenta     = "125"
-        let s:violet      = "61"
-        let s:blue        = "33"
-        let s:cyan        = "37"
-        let s:green       = "64"
     else
         "use colorscheme's color
         let s:base03      = "235"
@@ -344,6 +340,20 @@ elseif g:solarized_termcolors == 256
         let s:base15       = "223"
         let s:base2       = "229"
         let s:base3       = "230"
+    endif
+
+    if g:solarized_myowntintcolor != 1
+        "use default solarized color
+        let s:yellow      = "136"
+        let s:orange      = "166"
+        let s:red         = "124"
+        let s:magenta     = "125"
+        let s:violet      = "61"
+        let s:blue        = "33"
+        let s:cyan        = "37"
+        let s:green       = "64"
+    else
+        "use colorscheme's color
         let s:yellow      = "3"
         let s:orange      = "9"
         let s:red         = "1"
@@ -353,6 +363,7 @@ elseif g:solarized_termcolors == 256
         let s:cyan        = "6"
         let s:green       = "2"
     endif
+
 else
     let s:vmode       = "cterm"
     let s:bright      = "* term=bold cterm=bold"
